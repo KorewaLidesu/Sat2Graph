@@ -123,7 +123,7 @@ for item in dataset_cfg:
 			node_neighbor = graphlib.graphDensify(node_neighbor)
 			node_neighbor_region = graphlib.graph2RegionCoordinate(node_neighbor, [lat_st,lon_st,lat_ed,lon_ed])
 			prop_graph = dataset_folder+"/region_%d_graph_gt.pickle" % c
-			pickle.dump(node_neighbor_region, open(prop_graph, "w"))
+			pickle.dump(node_neighbor_region, open(prop_graph, "wb"))
 
 			#graphlib.graphVis2048(node_neighbor,[lat_st,lon_st,lat_ed,lon_ed], "dense.png")
 			graphlib.graphVis2048Segmentation(node_neighbor, [lat_st,lon_st,lat_ed,lon_ed], dataset_folder+"/region_%d_" % c + "gt.png")
@@ -131,7 +131,7 @@ for item in dataset_cfg:
 			node_neighbor_refine, sample_points = graphlib.graphGroundTruthPreProcess(node_neighbor_region)
 
 			refine_graph = dataset_folder+"/region_%d_" % c + "refine_gt_graph.p"
-			pickle.dump(node_neighbor_refine, open(refine_graph, "w"))
+			pickle.dump(node_neighbor_refine, open(refine_graph, "wb"))
 			json.dump(sample_points, open(dataset_folder+"/region_%d_" % c + "refine_gt_graph_samplepoints.json", "w"), indent=2)
 
 			c+=1
