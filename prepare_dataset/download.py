@@ -91,7 +91,7 @@ for item in dataset_cfg:
 			img, _ = md2.GetMapInRect(lat_st, lon_st, lat_ed, lon_ed, start_lat = lat_st, start_lon = lon_st, zoom=zoom, folder = folder_mapbox_cache)
 			print(np.shape(img))
 
-			img = scipy.misc.imresize(img.astype(np.uint8), (2048,2048))
+			img = numpy.array(Image.fromarray(img.astype(np.uint8)).resize((2048,2048)))
 			Image.fromarray(img).save(dataset_folder+"/region_%d_sat.png" % c)
 
 
