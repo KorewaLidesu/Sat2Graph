@@ -10,6 +10,7 @@ import scipy.misc
 from PIL import Image 
 import pickle
 import os
+import shutil
 
 dataset_cfg = []
 total_regions = 0 
@@ -38,6 +39,7 @@ Popen("mkdir tmp", shell=True).wait()
 dataset_folder = "global_dataset_stadia_no_service_road"
 folder_mapbox_cache = "mapbox_cache"
 
+shutil.rmtree(dataset_folder)
 Popen("mkdir %s" % dataset_folder, shell=True).wait()
 Popen("mkdir %s" % folder_mapbox_cache, shell=True).wait()
 
