@@ -108,7 +108,7 @@ for item in dataset_cfg:
 
 
 				neighbors = []
-				for nid in node_info["to"].keys() + node_info["from"].keys() :
+				for nid in list(node_info["to"]) + list(node_info["from"]) :
 					if nid not in neighbors:
 						neighbors.append(nid)
 
