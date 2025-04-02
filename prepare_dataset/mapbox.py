@@ -1,7 +1,7 @@
 import math 
 import numpy as np 
 import os 
-import scipy.ndimage
+import imageio
 from PIL import Image 
 from subprocess import Popen 
 from time import time, sleep 
@@ -77,7 +77,7 @@ def GetMapInRect(min_lat,min_lon, max_lat, max_lon , folder = "mapbox_cache", st
 
 			if Succ == True:
 				try:
-					subimg = scipy.ndimage.imread(filename).astype(np.uint8)
+					subimg = imageio.imread(filename).astype(np.uint8)
 				except:
 					print("image file is damaged, try to redownload it", filename)
 					Succ = False
@@ -86,7 +86,7 @@ def GetMapInRect(min_lat,min_lon, max_lat, max_lon , folder = "mapbox_cache", st
 				Succ = downloadMapBox(zoom, [i+mapbox1[0],j+mapbox2[1]], filename)
 
 			if Succ:
-				subimg = scipy.ndimage.imread(filename).astype(np.uint8)
+				subimg = imageio.imread(filename).astype(np.uint8)
 				img[j*512:(j+1)*512, i*512:(i+1)*512,:] = subimg
 
 
