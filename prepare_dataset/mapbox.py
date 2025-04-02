@@ -36,7 +36,7 @@ def downloadMapBox(zoom, p, outputname):
 	retry_timeout = 10
 
 	while Succ != True :
-		Popen("gtimeout 30s wget "+url, shell = True).wait()
+		# Popen("gtimeout 30s wget "+url, shell = True).wait()
 		Popen("timeout 30s wget "+url, shell = True).wait()
 		Succ = os.path.isfile(filename) 
 		Popen("mv \""+filename+"\" "+outputname, shell=True).wait()
