@@ -33,6 +33,7 @@ def downloadMapBox(zoom, p, outputname):
 	Succ = False
 
 	print(outputname)
+	print(url)
 	retry_timeout = 10
 
 	while Succ != True :
