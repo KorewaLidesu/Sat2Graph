@@ -144,7 +144,7 @@ indrange_train = []
 indrange_test = []
 indrange_validation = []
 
-for x in range(180):
+for x in range(c):
   if x % 10 < 8 :
     indrange_train.append(x)
 
