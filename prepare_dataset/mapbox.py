@@ -8,7 +8,7 @@ from time import time, sleep
 
 API_KEY = os.environ["STADIA_API_KEY"]
 if not API_KEY:
-	raise ValueError("Please setup Mapbox API key first before prepare dataset")
+	raise ValueError("Please setup Stadia API key first before prepare dataset")
 
 def lonlat2mapboxTile(lonlat, zoom):
 	n = np.exp2(zoom)
