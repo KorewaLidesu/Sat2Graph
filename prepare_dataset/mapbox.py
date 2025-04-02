@@ -28,7 +28,7 @@ def lonlat2TilePos(lonlat, zoom):
 
 def downloadMapBox(zoom, p, outputname):
 	url = "https://c.tiles.mapbox.com/v4/mapbox.satellite/%d/%d/%d@2x.jpg?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJjaml5MjVyb3MwMWV0M3hxYmUzdGdwbzE4In0.q548FjhsSJzvXsGlPsFxAQ" % (zoom, p[0], p[1])
-	filename = "%d@2x.jpg?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJjaml5MjVyb3MwMWV0M3hxYmUzdGdwbzE4In0.q548FjhsSJzvXsGlPsFxAQ" % (p[1])
+	filename = "%d@2x.jpg" % (p[1])
 
 	Succ = False
 
@@ -36,7 +36,7 @@ def downloadMapBox(zoom, p, outputname):
 	retry_timeout = 10
 
 	while Succ != True :
-		# Popen("gtimeout 30s wget "+url, shell = True).wait()
+		Popen("gtimeout 30s wget "+url, shell = True).wait()
 		Popen("timeout 30s wget "+url, shell = True).wait()
 		Succ = os.path.isfile(filename) 
 		Popen("mv \""+filename+"\" "+outputname, shell=True).wait()
