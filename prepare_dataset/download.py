@@ -100,7 +100,7 @@ for item in dataset_cfg:
 
 			node_neighbor = {} # continuous
 
-			for node_id, node_info in OSMMap.nodedict.iteritems():
+			for node_id, node_info in OSMMap.nodedict.items():
 				lat = node_info["lat"]
 				lon = node_info["lon"]
 
