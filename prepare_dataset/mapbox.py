@@ -6,7 +6,7 @@ from PIL import Image
 from subprocess import Popen 
 from time import time, sleep
 
-API_KEY = os.environ["MAPBOX_API_KEY"]
+API_KEY = os.environ["STADIA_API_KEY"]
 if not API_KEY:
 	raise ValueError("Please setup Mapbox API key first before prepare dataset")
 
@@ -32,7 +32,7 @@ def lonlat2TilePos(lonlat, zoom):
 
 def downloadMapBox(zoom, p, outputname):
 	# free api key (fake): pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJjaml5MjVyb3MwMWV0M3hxYmUzdGdwbzE4In0.q548FjhsSJzvXsGlPsFxAQ
-	url = f"https://c.tiles.mapbox.com/v4/mapbox.satellite/{zoom}/{p[0]}/{p[1]}@2x.jpg?access_token={API_KEY}"
+	url = f"https://tiles.stadiamaps.com/tiles/<style>/{zoom}/{p[0]}/{p[1]}@2x.png?access_token={API_KEY}"
 	filename = "%d@2x.jpg" % (p[1])
 
 	Succ = False
