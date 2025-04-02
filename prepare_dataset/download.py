@@ -34,7 +34,7 @@ print("total regions", total_regions)
 Popen("mkdir tmp", shell=True).wait()
 #Popen("mkdir googlemap", shell=True).wait() 
 
-dataset_folder = "global_dataset_mapbox_no_service_road"
+dataset_folder = "global_dataset_stadia_no_service_road"
 folder_mapbox_cache = "mapbox_cache"
 
 Popen("mkdir %s" % dataset_folder, shell=True).wait()
@@ -136,3 +136,26 @@ for item in dataset_cfg:
 
 			c+=1
 
+
+import json 
+
+# dataset partition
+indrange_train = []
+indrange_test = []
+indrange_validation = []
+
+for x in range(180):
+  if x % 10 < 8 :
+    indrange_train.append(x)
+
+  if x % 10 == 9:
+    indrange_test.append(x)
+
+  if x % 20 == 18:
+    indrange_validation.append(x)
+
+  if x % 20 == 8:
+    indrange_test.append(x)
+
+with open(os.path.join(dataset_folder, "data_split.json"),'w') as jf:
+    json.dump({'train':indrange_train,'valid':indrange_validation,'test':indrange_test},jf)
