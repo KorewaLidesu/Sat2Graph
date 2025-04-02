@@ -52,7 +52,7 @@ def downloadMapBox(zoom, p, outputname):
 
 
 
-def GetMapInRect(min_lat,min_lon, max_lat, max_lon , folder = "mapbox_cache/", start_lat = 42.1634, start_lon = -71.36, resolution = 1024, padding = 128, zoom = 19, scale = 2):
+def GetMapInRect(min_lat,min_lon, max_lat, max_lon , folder = "mapbox_cache", start_lat = 42.1634, start_lon = -71.36, resolution = 1024, padding = 128, zoom = 19, scale = 2):
 	mapbox1 = lonlat2mapboxTile([min_lon, min_lat], zoom)
 	mapbox2 = lonlat2mapboxTile([max_lon, max_lat], zoom)
 
