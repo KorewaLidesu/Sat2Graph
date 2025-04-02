@@ -35,7 +35,7 @@ Popen("mkdir tmp", shell=True).wait()
 #Popen("mkdir googlemap", shell=True).wait() 
 
 dataset_folder = "global_dataset_mapbox_no_service_road"
-folder_mapbox_cache = "mapbox_cache/"
+folder_mapbox_cache = "mapbox_cache"
 
 Popen("mkdir %s" % dataset_folder, shell=True).wait()
 Popen("mkdir %s" % folder_mapbox_cache, shell=True).wait()
