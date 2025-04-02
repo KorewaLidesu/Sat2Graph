@@ -32,7 +32,7 @@ def lonlat2TilePos(lonlat, zoom):
 
 def downloadMapBox(zoom, p, outputname):
 	# free api key (fake): pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJjaml5MjVyb3MwMWV0M3hxYmUzdGdwbzE4In0.q548FjhsSJzvXsGlPsFxAQ
-	url = f"https://tiles.stadiamaps.com/tiles/<style>/{zoom}/{p[0]}/{p[1]}@2x.png?access_token={API_KEY}"
+	url = f"https://tiles.stadiamaps.com/data/imagery/{zoom}/{p[0]}/{p[1]}@2x.png?api_key={API_KEY}"
 	filename = "%d@2x.jpg" % (p[1])
 
 	Succ = False
