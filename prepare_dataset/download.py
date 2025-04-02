@@ -8,7 +8,8 @@ import math
 import numpy as np 
 import scipy.misc 
 from PIL import Image 
-import pickle 
+import pickle
+import os
 
 dataset_cfg = []
 total_regions = 0 
